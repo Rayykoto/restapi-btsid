@@ -91,7 +91,11 @@ class ChecklistItemController extends Controller
             ], 404);
         }
 
-        $item->item_name = $request->item_name;
+        $validated = $request->validate([
+            'item_name' => 'required|string|max:255',
+        ]);
+
+        $item->item_name = $validated['item_name'];
         $item->save();
 
         return response()->json([

@@ -18,6 +18,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('item/{item}', [ChecklistItemController::class, 'show']);
         Route::put('item/{item}', [ChecklistItemController::class, 'update']);
         Route::delete('item/{item}', [ChecklistItemController::class, 'destroy']);
-        Route::patch('item/rename/{item}', [ChecklistItemController::class, 'rename']);
+        Route::put('item/rename/{item}', [ChecklistItemController::class, 'rename']);
     });
 });
